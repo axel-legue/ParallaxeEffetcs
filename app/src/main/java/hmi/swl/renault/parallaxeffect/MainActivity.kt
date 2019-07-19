@@ -16,7 +16,10 @@ class MainActivity : AppCompatActivity() {
         val viewPager = findViewById<ViewPager2>(R.id.view_pager).apply {
             adapter = sectionsPagerAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            setPageTransformer(ParallaxePageTransformer())
         }
+
+
         val tabs: TabLayout = findViewById(R.id.tabs)
         TabLayoutMediator(tabs, viewPager, true) { tab, position ->
             tab.text = sectionsPagerAdapter.getPageTitle(position)
